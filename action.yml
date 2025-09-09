@@ -1,24 +1,28 @@
-name: The name of your action here
-description: Provide a description here
-author: Your name or organization here
+# action.yml
+name: 'PR Codename Generator'
+description: 'Generates a fun codename for a pull request and posts it as a comment.'
+author: 'Your Name'
 
-# Add your action's branding here. This will appear on the GitHub Marketplace.
-branding:
-  icon: heart
-  color: red
-
-# Define your inputs here.
+# Define the inputs for the action
 inputs:
-  milliseconds:
-    description: Your input description here
+  adjectives:
+    description: 'A comma-separated list of adjectives to use for the codename.'
+    required: false
+    default: 'Silent,Cosmic,Quantum,Hidden,Electric,Golden,Lunar,Crimson'
+  nouns:
+    description: 'A comma-separated list of nouns to use for the codename.'
+    required: false
+    default: 'Pancake,Jaguar,Llama,Storm,Voyager,River,Mirage,Tsunami'
+  github-token:
+    description: 'The GitHub token to use for posting comments.'
     required: true
-    default: '1000'
 
-# Define your outputs here.
-outputs:
-  time:
-    description: Your output description here
+# Add branding for the Marketplace
+branding:
+  icon: 'package'
+  color: 'blue'
 
+# Define how the action runs
 runs:
-  using: node24
-  main: dist/index.js
+  using: 'node16'
+  main: 'dist/index.js'
